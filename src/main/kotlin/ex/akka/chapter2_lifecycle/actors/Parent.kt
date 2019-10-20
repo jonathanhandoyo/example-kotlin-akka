@@ -3,6 +3,7 @@ package ex.akka.chapter2_lifecycle.actors
 import akka.actor.AbstractLoggingActor
 import akka.actor.PoisonPill
 import akka.actor.Props
+import akka.japi.pf.ReceiveBuilder
 
 class Parent : AbstractLoggingActor() {
 
@@ -14,7 +15,8 @@ class Parent : AbstractLoggingActor() {
   object Trigger
 
   override fun createReceive(): Receive {
-    return receiveBuilder()
+    return ReceiveBuilder
+      .create()
       .match(Response::class.java) { onResponse() }
       .match(Trigger::class.java) { onTrigger() }
       .build()

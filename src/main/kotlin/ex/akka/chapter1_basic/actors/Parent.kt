@@ -2,6 +2,7 @@ package ex.akka.chapter1_basic.actors
 
 import akka.actor.AbstractLoggingActor
 import akka.actor.Props
+import akka.japi.pf.ReceiveBuilder
 
 class Parent: AbstractLoggingActor() {
 
@@ -14,7 +15,8 @@ class Parent: AbstractLoggingActor() {
   object Trigger
 
   override fun createReceive(): Receive {
-    return receiveBuilder()
+    return ReceiveBuilder
+      .create()
       .match(Count::class.java) { onCount() }
       .match(Response::class.java) { onResponse() }
       .match(Trigger::class.java) { onTrigger() }
@@ -33,7 +35,7 @@ class Parent: AbstractLoggingActor() {
   private fun onTrigger() {
     log().info("Parent triggered!")
 
-    (1..9).toList()
+    (1..9)
       .map { index -> "child-$index" }
       .map { name -> context.actorOf(Child.props(), name) }
       .forEach { actor -> actor.tell(Child.Trigger, self) }

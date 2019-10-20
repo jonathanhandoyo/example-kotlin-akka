@@ -2,6 +2,7 @@ package ex.akka.chapter1_basic.actors
 
 import akka.actor.AbstractLoggingActor
 import akka.actor.Props
+import akka.japi.pf.ReceiveBuilder
 
 class Child : AbstractLoggingActor() {
 
@@ -12,7 +13,8 @@ class Child : AbstractLoggingActor() {
   object Trigger
 
   override fun createReceive(): Receive {
-    return receiveBuilder()
+    return ReceiveBuilder
+      .create()
       .match(Trigger::class.java) { onTrigger() }
       .build()
   }

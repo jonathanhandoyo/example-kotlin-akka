@@ -1,4 +1,4 @@
-package ex.akka.chapter2_lifecycle.actors
+package ex.akka.chapter2_fault_tolerance.actors
 
 import akka.actor.AbstractLoggingActor
 import akka.actor.Props

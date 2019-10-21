@@ -1,8 +1,8 @@
-package ex.akka.chapter2_lifecycle
+package ex.akka.chapter2_fault_tolerance
 
 import akka.actor.ActorRef
 import akka.actor.ActorSystem
-import ex.akka.chapter2_lifecycle.actors.Parent
+import ex.akka.chapter2_fault_tolerance.actors.Parent
 
 fun main() {
   val system = ActorSystem.create("system")

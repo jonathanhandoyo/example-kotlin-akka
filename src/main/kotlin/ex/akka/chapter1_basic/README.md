@@ -1,3 +1,5 @@
+## Chapter 1 - The Basics
+
 In this chapter we will explore the basics of "Message Driven" aspect of Reactive Manifesto. After all, in the concept of actor system, actors communicate exclusively by exchanging messages. 
  
 Actors are object that encapsulate states and behavior. Some people understand actors passing messages as people in factory pipelines.

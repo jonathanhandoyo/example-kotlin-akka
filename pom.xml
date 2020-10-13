@@ -17,7 +17,7 @@
         <kotlin.code.style>official</kotlin.code.style>
 
         <akka.version>2.5.25</akka.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <kmongo.version>3.11.0</kmongo.version>
         <scala.version>2.12</scala.version>
     </properties>
